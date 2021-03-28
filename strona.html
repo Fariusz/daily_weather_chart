@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Wizualizacja danych</title>
+</head>
+<body style="background-color: azure;">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <canvas id="temperatura" width="800" height="450"></canvas>
+    <canvas id="wilgotnosc" width="800" height="450"></canvas>
+    <canvas id="cisnienie" width="800" height="450"></canvas>
+    <canvas id="opady" width="800" height="450"></canvas>
+    <canvas id="predkosc" width="800" height="450" "></canvas>
+    
+
+    <script>
+        var dateArray=['00:00','00:10', '00:20', '00:30',"00:40","00:50","01:00","01:10",'01:20',"01:30",'01:40',"01:50","02:00"];
+        new Chart(document.getElementById("temperatura"), {
+  type: 'line',
+  data: {
+    labels: dateArray ,
+    datasets: [{ 
+        data: [-2,-1,0,0,0,0.5,1,1,1.5,2,3,3,3],
+        label: "Temperatura powietrza",
+        borderColor: "#33ff33", 
+        fill: false
+      }, 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Temperatura [st. C]'
+    }
+  }
+});
+new Chart(document.getElementById("wilgotnosc"), {
+  type: 'line',
+  data: {
+    labels: dateArray ,
+    datasets: [{ 
+        data: [60,61,62,61,60,58,55,50,49,49,49,50,52],
+        label: "krzywa zmiany wilgotności [%]",
+        borderColor: "#b90000",
+        fill: false
+      }, 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Wilgotność powietrza'
+    }
+  }
+});
+new Chart(document.getElementById("Cisnienie powietrza"), {
+  type: 'line',
+  data: {
+    labels: dateArray ,
+    datasets: [{ 
+        data: [1013.25,1014.00,1014.25,1014.25,1014.25,1015,1015.25,1015,1014.75,1014.75,1014,1013,1012.50],
+        label: "krzywa zmiany Cisnienia [hPa]",
+        borderColor: "#e6e600",
+        fill: false
+      }, 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Cisnienie powietrza'
+    }
+  }
+});
+new Chart(document.getElementById("opady"), {
+  type: 'line',
+  data: {
+    labels: dateArray ,
+    datasets: [{ 
+        data: [20,22,22,24,30,30,40,43,45,38,38,32,22],
+        label: "Krzywa zmiany opadów [mm/m2]",
+        borderColor: "#990099",
+        fill: false
+      }, 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Opady'
+    }
+  }
+});
+new Chart(document.getElementById("predkosc"), {
+  type: 'line',
+  data: {
+    labels: dateArray ,
+    datasets: [{ 
+        data: [2,3,2,3,4,6,7,5,4,3.5,7,9,10],
+        label: "Krzywa zmiany prędkości wiartu [km/h]",
+        borderColor: "#009999",
+        backgroundColor:"#009999",
+        fill: false
+        
+      }, 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Prędkość wiatru'
+    }
+  }
+});
+
+  </script>
+</body>
+</html>
